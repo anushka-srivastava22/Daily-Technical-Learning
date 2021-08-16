@@ -1,3 +1,3 @@
-# Kivy-Learning
+# Daily-Technical-Learning
 
-<h2>Learning Basics of Kivymd. Practiced Few Important Programs to understand kivymd in a better way.</h2>
+<p>I update what I practiced and learn daily in different technologies.</p>
