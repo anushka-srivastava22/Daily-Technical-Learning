@@ -4,11 +4,10 @@
 <ul>
   <li>
     Python Programs
-   <\li>
+   
      <li>
     Machine Learning
-   <\li>
+   
      <li>
     Kivymd
-   <\li>
- <\ul>
+  
