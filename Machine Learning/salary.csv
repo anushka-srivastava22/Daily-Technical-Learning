@@ -1,0 +1,17 @@
+company,job ,degree,salary
+google,sales,bachelors,0
+google,sales,masters,0
+google,buisness,bachelors,1
+google,buisness,masters,1
+google,program,bachelors,0
+google,program,masters,1
+abc,sales,masters,0
+abc,program,bachelors,0
+abc,buisness,bachelors,0
+abc,buisness,masters,1
+facebook,sales,bachelors,1
+facebook,sales,masters,1
+facebook,buisness,bachelors,1
+facebook,buisness,masters,1
+facebook,program,bachelors,1
+facebook,program,masters,1
