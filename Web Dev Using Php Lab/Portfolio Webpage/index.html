@@ -1,0 +1,1294 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="style.css">
+
+        <!-- =====BOX ICONS===== -->
+        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+
+        <style>
+            /*===== GOOGLE FONTS =====*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+/*===== VARIABLES CSS =====*/
+:root{
+  --header-height: 3rem;
+  --font-semi: 600;
+}
+
+/*===== Colores =====*/
+:root{
+  --first-color: #4070F4;
+  --second-color: #0E2431;
+}
+
+/*===== Fuente y tipografia =====*/
+:root{
+  --body-font: 'Poppins', sans-serif;
+  --big-font-size: 2rem;
+  --h2-font-size: 1.25rem;
+  --normal-font-size: 0.938rem;
+}
+@media screen and (min-width: 768px){
+  :root{
+    --big-font-size: 3.5rem;
+    --h2-font-size: 2rem;
+    --normal-font-size: 1rem;
+  }
+}
+
+/*===== Margenes =====*/
+:root{
+  --mb-1: 0.5rem;
+  --mb-2: 1rem;
+  --mb-3: 1.5rem;
+  --mb-4: 2rem;
+  --mb-5: 2.5rem;
+  --mb-6: 3rem;
+}
+
+/*===== z index =====*/
+:root{
+  --z-back: -10;
+  --z-normal: 1;
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+/*===== BASE =====*/
+*,::before,::after{
+  box-sizing: border-box;
+}
+html{
+  scroll-behavior: smooth;
+}
+body{
+  margin: var(--header-height) 0 0 0;
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  color: var(--second-color);
+}
+h1,h2,p{
+  margin: 0;
+}
+ul{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+a{
+  text-decoration: none;
+}
+img{
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/*===== CLASS CSS ===== */
+.section-title{
+  position: relative;
+  font-size: var(--h2-font-size);
+  color: var(--first-color);
+  margin-top: var(--mb-2);
+  margin-bottom: var(--mb-4);
+  text-align: center;
+}
+.section-title::after{
+  position: absolute;
+  content: "";
+  width: 64px;
+  height: 0.18rem;
+  left: 0;
+  right: 0;
+  margin: auto;
+  top: 2rem;
+  background-color: var(--first-color);
+}
+.section{
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+}
+
+/*===== LAYOUT =====*/
+.bd-grid{
+  max-width: 1024px;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-column-gap: 2rem;
+  width: calc(100% - 2rem);
+  margin-left: var(--mb-2);
+  margin-right: var(--mb-2);
+}
+.l-header{
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: var(--z-fixed);
+  background-color: rgb(22, 22, 241);
+  box-shadow: 0 1px 4px rgba(146,161,176,.15);
+}
+
+/*===== NAV =====*/
+.nav{
+  height: var(--header-height);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: var(--font-semi);
+}
+@media screen and (max-width: 768px){
+  .nav__menu{
+    position: fixed;
+    top: var(--header-height);
+    right: -100%;
+    width: 80%;
+    height: 100%;
+    padding: 2rem;
+    background-color: var(--second-color);
+    transition: .5s;
+  }
+}
+.nav__item{
+  margin-bottom: var(--mb-4);
+}
+.nav__link{
+  position: relative;
+  color: white;
+}
+.nav__link:hover{
+  position: relative;
+}
+.nav__link:hover::after{
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 0.18rem;
+  left: 0;
+  top: 2rem;
+  background-color: var(--first-color);
+}
+.nav__logo{
+  color: white;
+}
+.nav__toggle{
+  color: var(--second-color);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/*Active menu*/
+.active::after{
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 0.18rem;
+  left: 0;
+  top: 2rem;
+  background-color: var(--first-color);
+}
+
+/*=== Show menu ===*/
+.show{
+  right: 0;
+}
+
+/*HOME*/
+
+.home__data{
+  align-self: center;
+}
+.home__title{
+  font-size: var(--big-font-size);
+  margin-top: 20px;
+}
+.home__title-color{
+  color: var(--first-color);
+}
+.home__social{
+  display: flex;
+  
+}
+.home__social-icon{
+  width: max-content;
+  margin-bottom: var(--mb-2);
+  font-size: 1.5rem;
+  margin-left:10px;
+  margin-top: 15px;
+  color: var(--second-color);
+}
+.home__social-icon:hover{
+  color: var(--first-color);
+}
+.home__img{
+  position: absolute;
+  right: 5%;
+  margin-top: 45px;
+  width: 295px;
+}
+
+.button{
+  display: inline-block;
+  background-color: var(--first-color);
+  color: #fff;
+  padding: .75rem 1.5rem;
+  font-weight: var(--font-semi);
+  border-radius: .5rem;
+}
+.button:hover{
+  box-shadow: 0 10px 36px rgba(0,0,0,.15);
+}
+/* ===== ABOUT =====*/
+.about__container{
+  row-gap: 2rem;
+  text-align: center;
+}
+.about__subtitle{
+  margin-bottom: var(--mb-2);
+}
+.about__img{
+  justify-self: center;
+}
+.about__img img{
+  width: 200px;
+  border-radius: .5rem;
+}
+/* ===== WORK =====*/
+.w1
+{
+  display: flex;
+  margin-bottom: 20px;
+}
+.w2
+{
+  display: flex;
+  margin-bottom: 20px;
+}
+.w3
+{
+  display: flex;
+  margin-bottom: 20px;
+}
+.w4
+{
+  display: flex;
+  margin-bottom: 20px;
+}
+.w5
+{
+  display: flex;
+  margin-bottom: 20px;
+}
+.work__subtitle{
+  margin-bottom: var(--mb-2);
+  margin-left:10px;
+}
+.work__icon{
+  width: max-content;
+  margin-bottom: var(--mb-2);
+  font-size: 1.5rem;
+  margin-left:10px;
+  margin-top: 15px;
+  color: var(--second-color);
+}
+.work__text
+{
+  margin-left: 10px;
+}
+.button1
+{
+  display: inline-block;
+  background-color: var(--first-color);
+  color: #fff;
+  padding: .75rem 2.5rem;
+  font-weight: var(--font-semi);
+  border-radius: .5rem;
+  margin-top: 20px;
+}
+.button1:hover
+{
+  box-shadow: 0 10px 36px rgba(0,0,0,.15);
+}
+/* ===== QUALIFICATIONS =====*/
+.q1
+{
+  display: flex;
+  margin-bottom: 20px;
+}
+.q2
+{
+  display: flex;
+  margin-bottom: 20px;
+}
+.q3
+{
+  display: flex;
+  margin-bottom: 20px;
+}
+.q4
+{
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.qualif__subtitle{
+  margin-bottom: var(--mb-2);
+  margin-left:10px;
+}
+.qualif__icon{
+  width: max-content;
+  margin-bottom: var(--mb-2);
+  font-size: 1.5rem;
+  margin-left:10px;
+  margin-top: 15px;
+  color: var(--second-color);
+}
+.qualif__text
+{
+  margin-left: 10px;
+}
+.button2{
+  display: inline-block;
+  background-color: var(--first-color);
+  color: #fff;
+  padding: .75rem 2.5rem;
+  font-weight: var(--font-semi);
+  border-radius: 50px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  
+}
+.button2:hover{
+  transform: scale(1.07);
+  box-shadow: 0 5px 15px rgb(5, 5, 5);
+  transition: 2s;
+}
+/* ===== SKILLS =====*/
+.skill_cont
+{
+  width: 250px;
+  height: 250px;
+  border: black solid 2px;
+  padding: 10px;
+  text-align: center;
+  margin-top: 10px;
+  border-radius: 30px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.skills__img
+{
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 16px;
+}
+.skills__subtitle
+{
+  margin-left:10px;
+  margin-top: 40px;
+}
+/* ===== PROJECTS =====*/
+.pro__subtitle{
+  margin-top: 15px;
+  margin-left:10px;
+}
+.ip1
+{
+  width: 300px;
+  height: 300px;
+  margin-top: 20px;
+  border: solid white 2px;
+  padding: 10px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+.pro_img
+{
+  width: 300px;
+  height: 150px;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.button3{
+  display: inline-block;
+  background-color: var(--first-color);
+  color: #fff;
+  padding: .75rem 2.5rem;
+  font-weight: var(--font-semi);
+  border-radius: .5rem;
+  margin-top: 16px;
+  margin-left: 40px;
+  
+}
+
+.button3:hover{
+  box-shadow: 0 10px 36px rgba(0,0,0,.15);
+}
+/* ===== ACHIEVEMENTS =====*/
+.button4
+{
+  display: inline-block;
+  background-color: var(--first-color);
+  color: #fff;
+  padding: .75rem 2.5rem;
+  font-weight: var(--font-semi);
+  border-radius: .5rem;
+  margin-top: 40px;
+  margin-left: 40px;
+  
+}
+.button4:hover
+{
+  box-shadow: 0 10px 36px rgba(0,0,0,.15);
+}
+.button5
+{
+  display: inline-block;
+  background-color: var(--first-color);
+  color: #fff;
+  padding: .75rem 2.5rem;
+  font-weight: var(--font-semi);
+  border-radius: .5rem;
+  margin-top: 12px;
+  margin-left: 40px;
+  
+}
+.button5:hover
+{
+  box-shadow: 0 10px 36px rgba(0,0,0,.15);
+}
+.button6
+{
+  display: inline-block;
+  background-color: var(--first-color);
+  color: #fff;
+  padding: .75rem 2.5rem;
+  font-weight: var(--font-semi);
+  border-radius: .5rem;
+  margin-top: 0.2rem;
+  margin-left: 40px;
+  
+}
+.button6:hover
+{
+  box-shadow: 0 10px 36px rgba(0,0,0,.15);
+}
+.achieve1
+{
+  width: 300px;
+  height: 280px;
+  border-radius: 16rem;
+  border: black solid 2px;
+  padding: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+}
+.achieve1:hover
+{
+    box-shadow: 0 0 0 0 #00008b;
+    
+}
+
+.achieve__title
+{
+  text-align: center;
+  margin-top: 42px;
+}
+/* ===== CONTACT =====*/
+.contact__input
+{
+  width: 100%;
+  font-size: var(--normal-font-size);
+  font-weight: var(--font-semi);
+  padding: 1rem;
+  border-radius: .5rem;
+  border: 1.5px solid var(--second-color);
+  outline: none;
+  margin-bottom: var(--mb-4);
+}
+.contact__button{
+  display: block;
+  border: none;
+  outline: none;
+  font-size: var(--normal-font-size);
+  cursor: pointer;
+  margin-left: auto;
+}
+
+/* ===== FOOTER =====*/
+.footer{
+  background-color: var(--second-color);
+  color: #fff;
+  text-align: center;
+  font-weight: var(--font-semi);
+  padding: 2rem 0;
+}
+.footer__title{
+  font-size: 2rem;
+  margin-bottom: var(--mb-4);
+}
+.footer__social{
+  margin-bottom: var(--mb-4);
+}
+.footer__icon{
+  font-size: 1.5rem;
+  color: #fff;
+  margin: 0 var(--mb-2)
+}
+
+/* ===== Responsive =====*/
+@media screen and (max-width: 765px)
+{
+  .home__img
+  {
+     width: 100px;
+     
+     margin-top: 166px;
+  }
+  
+}
+@media screen and (min-width: 768px){
+    body
+    {
+      margin: 0;
+    }
+    .section
+    {
+      padding-top: 4rem;
+      padding-bottom: 3rem;
+    }
+    .section-title
+    {
+      margin-bottom: var(--mb-6);
+    }
+    .section-title::after
+    {
+      width: 80px;
+      top: 3rem;
+    }
+  
+    .nav
+    {
+      height: calc(var(--header-height) + 1rem);
+    }
+    .nav__list
+    {
+      display: flex;
+      padding-top: 0;
+    }
+    .nav__item
+    {
+      margin-left: var(--mb-4);
+      margin-bottom: 0;
+    }
+    .nav__toggle
+    {
+      display: none;
+    }
+    .nav__link
+    {
+      color: white;
+    }
+  
+    .home
+    {
+      height:800px;
+    }
+    .home__data
+    {
+      align-self: flex-end;
+    }
+    .home__social
+    {
+      padding-top: 0;
+      padding-bottom: 2.5rem;
+      flex-direction: row;
+      align-self: flex-end;
+    }
+    .home__social-icon
+    {
+      margin-bottom: 0;
+      margin-right: var(--mb-4);
+    }
+    .home__img
+    {
+      margin-top: 470px;
+    }
+  
+    .about__container
+    {
+      grid-template-columns: repeat(2,1fr);
+      align-items: center;
+      text-align: initial;
+    }
+    
+    .about__img img{
+      width: 300px;
+    }
+    .button2
+    {
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+    .q4 .course_container1
+    {
+      display: flex;
+      justify-content: space-around;
+      
+    }
+    .q4 .course_container2
+    {
+      display: flex;
+      justify-content: space-around;
+      
+    }
+    .q4 .course_container3
+    {
+      display: flex;
+      justify-content: space-around;
+      
+    }
+    .skill1
+    {
+      display: flex;
+      justify-content: space-around;
+    }
+    .skill2
+    {
+      display: flex;
+      justify-content: space-around;
+    }
+    .skill3
+    {
+      display: flex;
+      justify-content: space-around;
+    }
+    .skill4
+    {
+      display: flex;
+      justify-content: space-around;
+    }
+    .p1
+    {
+      display: flex;
+        
+    }
+    .p2
+    {
+      display: flex;
+      justify-content: space-around;
+      
+    }
+    .p3
+    {
+      display: flex;
+      justify-content: space-around;
+      
+    }
+    .p4
+    {
+      display: flex;
+      justify-content: space-around;
+      
+    }
+    .ip1
+    {
+      width: 700px;
+      height: 300px;
+    }
+    .pro_img
+    {
+      width: 600px;
+      height: 250px;
+      margin-top: 20px;
+    }
+    .achieve_cont1
+    {
+      display: flex;
+      justify-content: space-around;
+    }
+    .contact__form{
+      width: 360px;
+    }
+    .contact__container{
+      justify-items: center;
+    }
+  }
+  
+  @media screen and (min-width: 1024px){
+    .bd-grid{
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .home__img{
+      right: 10%;
+    }
+    
+  }
+  
+        </style>
+
+        <title>My Portfolio Website </title>
+    </head>
+    <body>
+        <!--===== HEADER =====-->
+        <header class="l-header">
+            <nav class="nav bd-grid">
+                <div>
+                    <a href="#" class="nav__logo">AnuSri</a>
+                </div>
+
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item"><a href="#home" class="nav__link active">Home</a></li>
+                        <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
+                        <li class="nav__item"><a href="#work" class="nav__link">Work</a></li>
+                        <li class="nav__item"><a href="#qualif" class="nav__link">Education</a></li>
+                        <li class="nav__item"><a href="#skills" class="nav__link">Skills</a></li>
+                        <li class="nav__item"><a href="#project" class="nav__link">Projects</a></li>
+                        <li class="nav__item"><a href="#achieve" class="nav__link">Achievements</a></li>
+                        <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class='bx bx-menu'></i>
+                </div>
+            </nav>
+        </header>
+        <main class="l-main">
+            <!--===== HOME =====-->
+            <section class="home bd-grid" id="home">
+                <div class="home__data">
+                    <h1 class="home__title">Hi,<br>I'am <span class="home__title-color">Anushka</span></h1>
+                    <h2 class="about__subtitle">Dream Big, Believe Bold!</h2>
+                    <a href="#" class="button">Resume</a>
+                    <a href="https://medium.com/@srivastavaanushka3" class="button">Blogs</a>
+                    
+                </div>
+            
+                <div class="home__social">
+                    <a href="https://www.linkedin.com/in/anushka-srivastava-0b08b61b1" class="home__social-icon"><i class='bx bxl-linkedin'></i></a>
+                    <a href="https://www.facebook.com/profile.php?id=100004593605687" class="home__social-icon"><i class='bx bxl-facebook' ></i></i></a>
+                    <a href="https://www.instagram.com/little_hopeful_heart/?hl=en" class="home__social-icon"><i class='bx bxl-instagram' ></i></i></a>
+                    <a href="https://github.com/anushka-srivastava22" class="home__social-icon"><i class='bx bxl-github' ></i></i></a>
+                </div>
+
+                <div class="home__img">    
+                    <img src="imgs/pic1.jpg" alt="pic1" >
+                </div>
+            </section>
+            <!--===== ABOUT =====-->
+            <section class="about section " id="about">
+                <h2 class="section-title">About Myself</h2>
+
+                <div class="about__container bd-grid">
+                    <div class="about__img">
+                        <img src="imgs/pic.jpg" alt="">
+                    </div>
+                    
+                    <div>
+                        <h2 class="about__subtitle">Hey , I'am Anushka Srivastava.</h2>
+                        <p class="about__text">I am an enthusiastic , responsible and a passionate person. I have a curosity to learn and implement new things and technologies. I love coding. I am a focused and hardworking professional. My strength is that wherever I go I create an aura of positivity around me. My weakness is that I have a never giving up attitude and I keep on trying on it until I achieve it. In my leisure time, I Love Travelling. My hobbies are Listening to Songs and Dancing. </p>           
+                    </div>                                   
+                </div>
+            </section>
+            
+             <!--===== Work =====-->
+            <section class="work section" id="work">
+                <h2 class="section-title">Work Experience</h2>
+
+                <div class="work__container bd-grid">
+                    <div class="w5">
+                        <div>
+                            <a href="" class="work__icon"></a><i class="fa fa-briefcase" aria-hidden="true"></i></a>
+                        </div>
+                        <div>
+                            <div>
+                       
+                                <h2 class="work__subtitle">Media and Outreach Lead</h2>
+                                <h2 class="work__subtitle">Codechef GBU Chapter</h2>
+                                <p class="work__text">June-Present, 2021 </p>
+                                <p class="work__text">CodeChef GBU Chapter is a programming club run and maintained by official Chapter Leaders and mentored by CodeChef.
+                                   
+                                   <br>-> Leading Chapter of 400+ Members to create a community of good and eligible coders.
+                                   <br>-> Ensuring that students actively Participate in Coding Contests and Events.
+                                   <br>-> Managing and Monitoring Social Media channels.
+                                   <br>-> Ensuring brand visibility and consistency on Campus about Competitive Programming.
+                                   <br>-> Creating content pieces and designing posters as required.</p>
+                            </div>
+                        </div>
+                       
+                   </div>
+                    <div class="w4">
+                        <div>
+                            <a href="" class="work__icon"></a><i class="fa fa-briefcase" aria-hidden="true"></i></a>
+                        </div>
+                        <div>
+                            <div>
+                       
+                                <h2 class="work__subtitle">DSA Mentor</h2>
+                                <h2 class="work__subtitle">The Uplift Project by GirlScript Foundation</h2>
+                                <p class="work__text">June-Present, 2021 - 3 Month Internship</p>
+                                <p class="work__text">The Uplift Project by GirlScript is a global project which aims at helping everyone to leverage their knowledge, skill and potential to higher levels.
+                                   
+                                   <br>-> Mentor of Data Structures and Algorithm.
+                                   <br>-> Taking Live Classes to Teach the Concepts of DSA.
+                                   <br>-> Solving Doubts of Mentees by taking extra Doubt Resolving Sessions.
+                                   <br>-> Giving Daily Assignments of Program and Concepts and then Evaluate them.
+                                   <br>-> Taking Weekly Quiz by setting good questions.
+                                   <br>-> Setting Problems for Monthly Contests. </p>
+                            </div>
+                        </div>
+                       
+                   </div>
+                    <div class="w3">
+                        <div>
+                            <a href="" class="work__icon"></a><i class="fa fa-briefcase" aria-hidden="true"></i></a>
+                        </div>
+                        <div>
+                       
+                            <h2 class="work__subtitle">Open Source Contributor</h2>
+                            <h2 class="work__subtitle">Let's Grow More Summer of Code' 21</h2>
+                            <p class="work__text">June - Aug, 2021 - 2 Months Internship</p>
+                            <p class="work__text">LGMSOC is an online program of 1 month , designed to encourage student participation in open source software development under the guidance of mentors from the open source community.
+                                <br>-> Contributed to Musicophilia, Movie-Streaming-Website , DSA Playyards. 
+                                <br>-> Worked primarily on Data Structures , HTML5, CSS3, JavaScript.
+                                <br>-> Collaborated on Git and Github for Open Source Development of Projects. </p>
+                                <a href="https://drive.google.com/file/d/1ZvhiHKWILenO3aVigxc7hV4ob9OY2Osp/view?usp=drivesdk" class="button1">Certificate</a>
+                        </div>
+                       
+                   </div>
+                
+                
+                <div class="w1">
+                    <div>
+                        <a href="" class="work__icon"></a><i class="fa fa-briefcase" aria-hidden="true"></i></a>
+                    </div>
+                    <div>
+                   
+                        <h2 class="work__subtitle">Campus Ambassdor</h2>
+                        <h2 class="work__subtitle">The Climber - My Captain</h2>
+                        <p class="work__text">Sept-Oct, 2020 - 2 Months Internship</p>
+                        <p class="work__text">-> Interacted with many people and  told them the benefits of the workshops here 
+                            <br>->Successfully convinced few of them to join my captain workshop. 
+                            <br>->Developed Promotional Messages which depicts the importance of joining the workshop and its benefits you get through these workshops.
+                            <br>->Helped and guided people throughout the enrollment process.
+                            <br>->Increased the sales by spreading Promotional Messages through social networking sites among a large group of people.</p>
+                        <a href="https://drive.google.com/file/d/1z-QXYt2wjNnT7wlkAJuB2j7dBe3CKxhM/view?usp=drivesdk" class="button1">Certificate</a>
+                        <a href="https://drive.google.com/file/d/1z2X5TWFjSfBpkkD3Trv9fyTU1wdygjk_/view?usp=drivesdk" class="button1">Letter of Recommendation</a>
+                    </div>
+               </div>
+               <div class="w2">
+                    <div>
+                        <a href="" class="work__icon"></a><i class="fa fa-briefcase" aria-hidden="true"></i></a>
+                    </div>
+                    <div>
+                        <h2 class="work__subtitle">Frontend Development</h2>
+                        <h2 class="work__subtitle">Cologne Prime</h2>
+                        <p class="work__text">Aug, 2020 - 1 Month Internship</p>
+                        <p class="work__text">->Developed an Online Payment System for their main website.<br>->User fill their 
+                         details in the form and then they will be given 3 modes of payment like credit/debit card, phone pe,
+                        and cash on delivery.<br>-> Worked on HTML5 and CSS3 to design the UI of the System. </p>
+                        <a href="https://drive.google.com/file/d/1LJ24mtSsRcnqXc4FVC46ZS-SNLxuegSD/view?usp=drivesdk" class="button1">Certificate</a>
+                        <a href="https://anushka-srivastava22.github.io/Payment-System-Company-Intern-/" class="button1">Project</a>
+                        
+                    </div>
+                </div>
+               </div>
+                </div>
+            </section>
+
+             <!--===== EDUCATION =====-->
+            <section class="qualif section " id="qualif">
+                <h2 class="section-title">Education</h2>
+
+                <div class="qualif__container bd-grid">
+                    <div class="q1">
+                        <div >
+                            <a href="" class="qualif__icon"><i class="fa fa-graduation-cap" aria-hidden="true" ></i></a>
+                        </div>
+                        <div>
+                            <h2 class="qualif__subtitle">Gautam Buddha University , Greater Noida</h2>
+                            <p class="qualif__text">2019-2023</p>
+                            <br>
+                            <p class="qualif__text">Btech , Computer Science & Engineering</p>
+                            <p class="qualif__text">Secured 9.36 SGPA</p>
+                        </div>
+                    </div>
+                    
+                    <div class="q2">
+                        <div class="img">
+                            <a href="" class="qualif__icon"><i class="fa fa-graduation-cap" aria-hidden="true" id="img"></i></a>
+                        </div>
+                        <div>
+                            <h2 class="qualif__subtitle">St. Mary's Convent Inter College</h2>
+                            <p class="qualif__text">2016-2018</p>
+                            <br>
+                            <p class="qualif__text">ISC - Board , PCM + Computer</p>
+                            <p class="qualif__text">Secured 86.25%</p>
+                        </div>
+                    </div>
+
+                    <div class="q3">
+                        <div class="img">
+                            <a href="" class="qualif__icon"><i class="fa fa-graduation-cap" aria-hidden="true" id="img"></i></a>
+                        </div>
+                        <div>
+                            <h2 class="qualif__subtitle">St. Mary's Convent Inter College.</h2>
+                            <p class="qualif__text">2005-2016</p>
+                            <br>
+                            <p class="qualif__text">ICSE - Board , Computer Science</p>
+                            <p class="qualif__text">Secured 88.4%</p>
+                        </div>
+                    </div>
+                    
+                    <div class="q4">
+                        <div class="img">
+                            <a href="" class="qualif__icon"><i class="fa fa-graduation-cap" aria-hidden="true" id="img"></i></a>
+                        </div>
+                        <div>
+                            <h2 class="qualif__subtitle">Courses</h2>
+                            <div class="course_container1">
+                                <div >
+                                    <a href="https://drive.google.com/file/d/1yX8Zf08NcMtbg9R1QkBv4TESzjgeGo3s/view?usp=drivesdk" class="button2">C Programming</a>
+                                </div>
+                                <div>
+                                    <a href="https://drive.google.com/file/d/1yKw_E69jsBpPQubjaEDzdVzU6nomqpCm/view?usp=drivesdk" class="button2">Java Programming</a>
+                                </div>
+                                <div>
+                                    <a href="https://drive.google.com/file/d/1yt5syLcu5DTH0fe69c7SYLqUjbj47x6o/view?usp=drivesdk" class="button2">Web Development</a>
+                                </div>
+                                <div>
+                                    <a href="https://drive.google.com/file/d/1ykiTPTnU2yr8SiCiS88-g4q3808Az33r/view?usp=drivesdk" class="button2">UI and UX Design</a>
+                                </div>
+                               
+                            </div>
+                            <div class="course_container2">
+                                <div>
+                                    <a href="https://drive.google.com/file/d/1yWrf9JxHLGq9ZUshU1XoRbvdSlYyYeZz/view?usp=drivesdk" class="button2">App Development</a>
+                                </div>
+                                <div>
+                                    <a href="https://drive.google.com/file/d/1yia5nwh-r5CCkxu1-SFhcF-3Wc4UN7gU/view?usp=drivesdk" class="button2">Ethical Hacking</a>
+                                </div>
+                                <div>
+                                    <a href="https://drive.google.com/file/d/1yfu76GCXK4vMmsg6mbvClarTjr3w-aXk/view?usp=drivesdk" class="button2">Cpp Programming</a>
+                                </div>
+                                <div>
+                                    <a href="https://drive.google.com/file/d/11SByBN8lLabn0ArSSFj1VkHCDlKJFCfM/view?usp=drivesdk" class="button2">Python Programming</a>
+                                </div>
+                            </div>
+                            <div class="course_container3">
+                                <div>
+                                    <a href="https://drive.google.com/file/d/1QM2xCI248CrcpuVoZK1_RaZx-aV_su-B/view?usp=drivesdk" class="button2">Artificial Intelligence</a>
+                                </div>
+                                
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </section>
+             <!--===== SKILLS =====
+            <section class="skills__container bd-grid" id="skills">
+                <h2 class="section-title">Skills</h2>
+
+                <div class="skill1">          
+                    <div class="skill_cont">
+                        <img src="imgs/s1.jpg" alt="s1"  class="skills__img" width="100px" height="100px">
+                        <h2 class="skills__subtitle">Java</h2>
+                        
+                    </div>
+                    <div class="skill_cont">
+                        <img src="imgs/s2.jpg" alt="s2"  class="skills__img" width="74px" height="74px">
+                        <h2 class="skills__subtitle">HTML5</h2>
+                    </div>
+                    <div class="skill_cont">
+                        <img src="imgs/s3.jpg" alt="s3"  class="skills__img" width="74px" height="74px">
+                        <h2 class="skills__subtitle">CSS3</h2>
+                    </div>
+                    
+                </div>
+
+                <div class="skill2"> 
+                    <div class="skill_cont">
+                        <img src="imgs/s4.jpg" alt="s4"  class="skills__img" width="74px" height="74px">
+                        <h2 class="skills__subtitle">JavaScript</h2>
+                    </div>         
+                    <div class="skill_cont">
+                        <img src="imgs/s9.jpg" alt="s5"  class="skills__img" width="100px" height="100px">
+                        <h2 class="skills__subtitle">Data Structure & Algorithm</h2>
+                    </div>
+                    <div class="skill_cont">
+                        <img src="imgs/s6.png" alt="s6"  class="skills__img" width="74px" height="74px">
+                        <h2 class="skills__subtitle">C </h2>
+                    </div>
+                   
+                </div>
+                <div class="skill3">
+                    <div class="skill_cont"> 
+                        <img src="imgs/s11.jpg" alt="s7"  class="skills__img" width="100px" height="100px">
+                        <h2 class="skills__subtitle">Git & Github</h2>
+                    </div>
+                    <div class="skill_cont">
+                        <img src="imgs/s10.jpeg" alt="s8"  class="skills__img" width="100px" height="100px">
+                        <h2 class="skills__subtitle">Bootstrap4</h2>
+                    </div>
+                    
+                    <div class="skill_cont">
+                        <img src="imgs/s17.png" alt="s17"  class="skills__img" width="100px" height="100px">
+                        <h2 class="skills__subtitle">My SQL</h2>
+
+                    </div>
+                </div>
+                <div class="skill4">
+                    <div class="skill_cont"> 
+                        <img src="imgs/s15.png" alt="s7"  class="skills__img" width="100px" height="100px">
+                        <h2 class="skills__subtitle">Mongo DB</h2>
+                    </div>
+                    <div class="skill_cont">
+                        <img src="imgs/s16.png" alt="s8"  class="skills__img" width="100px" height="100px">
+                        <h2 class="skills__subtitle">Node js</h2>
+                    </div>
+                    
+                    <div class="skill_cont">
+                        <img src="imgs/s18.png" alt="s17"  class="skills__img" width="100px" height="100px">
+                        <h2 class="skills__subtitle">Express js</h2>
+
+                    </div>
+                </div>
+                <h3 class="section-title">Familiar With</h3>
+                <div class="skill4">          
+                    <div class="skill_cont">
+                        <img src="imgs/s8.jpg" alt="s9"  class="skills__img" width="100px" height="100px">
+                        <h2 class="skills__subtitle">React js</h2>
+                    </div>
+                    <div class="skill_cont">
+                        <img src="imgs/s5.jpg" alt="s10"  class="skills__img" width="100px" height="100px">
+                        <h2 class="skills__subtitle">Python</h2>
+                    </div>
+                    <div class="skill_cont">
+                        <img src="imgs/s7.png" alt="s11"  class="skills__img" width="80px" height="80px">
+                        <h2 class="skills__subtitle" >Cpp </h2>
+                    </div>
+                    
+                </div>
+            </section> --->
+             <!--===== PROJECTS =====-->
+            <section class="project__section bd-grid " id="project">
+                <h2 class="section-title">Projects</h2>
+
+                <div class="pro__container ">
+                    <div class="p4">
+                        <div>
+                            <img src="imgs/p4.PNG" alt="p4" class="pro_img" >
+                        </div>
+                        <div class="ip1">
+                            <h2 class="pro__subtitle">WordPlay App</h2>
+                            <p class="pro__text">
+                                Developed a WordPlay App which creates a learning environment by giving insights over different areas of grammar 
+                                through Games of English during Hack The Mountain-Hackathon 2.O organized by MLH
+                                & Sudan's Tech.Tech Stack : Python, Web Scrapping, Kivymd, NLP, ML.
+                            </p>
+                            <a href="https://github.com/anushka-srivastava22/WordPlay-App" class="button3">View Project</a>
+                        </div>
+                    </div>
+                    <div class="p3">
+                        <div>
+                            <img src="imgs/p3.PNG" alt="p3" class="pro_img" >
+                        </div>
+                        <div class="ip1">
+                            <h2 class="pro__subtitle">Password Management Project</h2>
+                            <p class="pro__text">
+                                Implemented a Responsive Password Management System in which a user can add and see their password categories and its details.
+                                Tech Stack : Node js , Express js , Bootstrap4 and MongoDB.
+                            </p>
+                            <a href="https://github.com/anushka-srivastava22/Password-Management-System-Project" class="button3">View Project</a>
+                        </div>
+                    </div>
+                    <div class="p1">
+                        <div>
+                            <img src="imgs/p1.PNG" alt="p1" class="pro_img">
+                        </div>
+                        <div class="ip1">
+                            <h2 class="pro__subtitle">Portfolio Project</h2>
+                            <p class="pro__text">
+                                Developed a Responsive Portfolio Website which is an extension of Resume and provides a convenient way
+                                for potential clients and recruiters to view my Education, Work Experience , Achievements e.t.c.
+                                Tech Stack : HTML5, CSS3, Bootstrap4 and JavaScript. 
+                                
+                            </p>
+                            <a href="#" class="button3">View Project</a>
+                        </div>
+                    </div>
+                    
+                    <div class="p2">
+                        <div>
+                            <img src="imgs/p2.PNG" alt="p2" class="pro_img" >
+                        </div>
+                        <div class="ip1">
+                            <h2 class="pro__subtitle">Restaurant Management Project</h2>
+                            <p class="pro__text">
+                                Developed a Responsive Restaurant Management Website in which a user can see the menu of food items available 
+                                in a Restaurant. Tech Stack : HTML5, CSS3, Bootstrap4 and JavaScript.
+                                
+                            </p>
+                            <a href="https://anushka-srivastava22.github.io/Restauraunt-Management-Project/" class="button3">View Project</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="project__section bd-grid " id="project">
+                <h2 class="section-title">Open Source Projects</h2>
+
+                <div class="pro__container ">
+                    <div class="p1">
+                        <div>
+                            <img src="imgs/osp3.PNG" alt="osp3" class="pro_img" >
+                        </div>
+                        <div class="ip1">
+                            <h2 class="pro__subtitle">DSA Playyard</h2>
+                            <p class="pro__text">
+                                Made an Open Source Contribution as a part of Let's Grow More Summer of Code '21 by adding 
+                                Programs for Count Primes and Counting Bits of a Number using basic approach and bitwise 
+                                operators respectively.Tech Stack : Java.
+                            </p>
+                            <a href="https://github.com/LetsGrowMoreCommunity/DSA-Playyard" class="button3">View Project</a>
+                        </div>
+                    </div>
+                    <div class="p2">
+                        <div>
+                            <img src="imgs/osp2.PNG" alt="osp2" class="pro_img" >
+                        </div>
+                        <div class="ip1">
+                            <h2 class="pro__subtitle">Movie-Streaming-Website</h2>
+                            <p class="pro__text">
+                                Made an Open Source Contribution as a part of Let's Grow More Summer of Code '21 by Enhancing the Tagline 
+                                using Hovering Effects and Animations and Added a Movie Page.
+                                Tech Stack : HTML5, CSS3, JavaScript.
+                            </p>
+                            <a href="https://github.com/QAZIMAAZARSHAD/Movie-Streaming-Website/pull/195" class="button3">View Project</a>
+                        </div>
+                    </div>
+                    <div class="p3">
+                        <div>
+                            <img src="imgs/osp1.PNG" alt="osp3" class="pro_img">
+                        </div>
+                        <div class="ip1">
+                            <h2 class="pro__subtitle">Musicophilia</h2>
+                            <p class="pro__text">
+                                Made an Open Source Contribution as a part of Let's Grow More Summer of Code ' 21 by adding
+                                Styling using Hovering Effects and Animations on Band Page.
+                                Tech Stack : CSS3.
+                                
+                            </p>
+                            <a href="https://github.com/nilisha-jais/Musicophilia/pull/180" class="button3">View Project</a>
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+            </section>
+
+             <!--===== ACHIEVEMENTS =====-->
+            <section class="achv__section bd-grid " id="achieve">
+                <h2 class="section-title">Achievements</h2>
+
+                <div class="ach__container bd-grid">
+                    <div class="achieve_cont1">
+                        <div class="achieve1">
+                            <h3 class="achieve__title">Google Cloud Skill Badges (30 Quests , 15 Skill Badges , 150+ Labs)</h3>
+                            <a href="https://google.qwiklabs.com/public_profiles/c4926568-c228-4351-bb0b-b7d5531b2e02" class="button5">View Profile</a>
+                        </div>
+                        <div class="achieve1">
+                            <h3 class="achieve__title">Completed Virtual Engineering Program'21 in Goldman's Sach </h3>
+                            <a href="https://drive.google.com/file/d/1ZDTqnIssOJsvf3YDrKtsPEX2L9tjdONR/view?usp=drivesdk" class="button5">Certificate</a>
+                        </div>
+                        <div class="achieve1">
+                            <h3 class="achieve__title">Ranked 4336 in Java Full Stack in Capgemini Tech Challenge'21 among 20k+ participants.</h3>
+                            <a href="https://drive.google.com/file/d/1ZHLjzJQQYB9ngjwjYffeArx7AC24hejQ/view?usp=drivesdk" class="button5">Certificate</a>
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <div class="ach__container bd-grid">
+                    <div class="achieve_cont1">
+                        <div class="achieve1">
+                            <h3 class="achieve__title">Qualified Coding Round of Uber Hacktag Hackathon'21 among 25k participants. </h3>
+                            <a href="https://drive.google.com/file/d/19MtFCBf1tqiZFGR88SQAocdft4aCvr1a/view?usp=drivesdk" class="button6">Certificate</a>
+                        </div>
+                        <div class="achieve1">
+                            <h3 class="achieve__title">Secured 6650th Rank in Google Hash Code'21 among 95k+ participants</h3>
+                            <a href="https://drive.google.com/file/d/15WCUL1fp6w_67rm6ThvhyZpX7KjI4sGn/view?usp=drivesdk" class="button3">Certificate</a>
+                        </div>
+                        <div class="achieve1">
+                            <h3 class="achieve__title">2 Star Coder at Codechef , highest rating 1500</h3>
+                            <a href="https://www.codechef.com/users/anu2230" class="button4">View Profile</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="ach__container bd-grid">
+                    <div class="achieve_cont1">
+                        <div class="achieve1">
+                            <h3 class="achieve__title">Gold Medallist in Java & Problem Solving in Hackerrank</h3>
+                            <a href="https://www.hackerrank.com/srivastavaanush2" class="button3">View Profile</a>
+                        </div>
+                        <div class="achieve1">
+                            <h3 class="achieve__title">Silver Medallist in C , Python , SQL in Hackerrank</h3>
+                            <a href="https://www.hackerrank.com/srivastavaanush2" class="button5">View Profile</a>
+                        </div>
+                        <div class="achieve1">
+                            <h3 class="achieve__title"> 2 Star Coder by Solving 150+ Problems on LeetCode.  </h3>
+                            <a href="https://leetcode.com/anu2230/" class="button5">View Profile</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+             <!--===== CONTACT =====
+             <section class="contact section" id="contact">
+                <h2 class="section-title">Contact</h2>
+
+                <div class="contact__container bd-grid">
+                    <form action="" class="contact__form">
+                        <input type="text" placeholder="Name" class="contact__input">
+                        <input type="mail" placeholder="Email" class="contact__input">
+                        <textarea name="" id="" cols="0" rows="10" class="contact__input"></textarea>
+                        <input type="button" value="Enviar" class="contact__button button">
+                    </form>
+                </div>
+            </section>
+        </main> -->
+        <!--===== FOOTER =====-->
+        <footer class="footer">
+            <p class="footer__title">AnuSri</p>
+            <p class="footer__text">Call me on : 8318912687 <br></p>
+            <div class="footer__social">
+               
+                <a href="https://www.linkedin.com/in/anushka-srivastava-0b08b61b1" class="footer__icon"><i class='bx bxl-linkedin'></i></a>
+                <a href="https://www.facebook.com/profile.php?id=100004593605687" class="footer__icon"><i class='bx bxl-facebook' ></i></i></a>
+                <a href="https://www.instagram.com/little_hopeful_heart/?hl=en" class="footer__icon"><i class='bx bxl-instagram' ></i></i></a>
+                <a href="https://github.com/anushka-srivastava22" class="footer__icon"><i class='bx bxl-github' ></i></i></a>
+
+            </div>
+            <p>&#169; 2020 copyright all right reserved</p>
+        </footer>
+
+
+        <script src="https://unpkg.com/scrollreveal"></script>
+
+        <!--===== MAIN JS =====-->
+        <script src="main.js"></script>
+    </body>
+</html>
